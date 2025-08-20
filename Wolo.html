@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Gestión WOLO</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="Sistema integral para el control financiero de tus proyectos">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="WOLO">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- PWA Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM2NjdlZWEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM3NjRiYTIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgZmlsbD0idXJsKCNhKSIgcng9IjI0Ii8+PHRleHQgeD0iOTYiIHk9IjEyMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjcyIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+agDwvdGV4dD48L3N2Zz4=">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPjxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiM2NjdlZWEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM3NjRiYTIiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgZmlsbD0idXJsKCNhKSIgcng9IjI0Ii8+PHRleHQgeD0iOTYiIHk9IjEyMCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjcyIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+agDwvdGV4dD48L3N2Zz4=">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkdlc3Rpw7NuIFdPTE8iLAogICJzaG9ydF9uYW1lIjogIldPTE8iLAogICJkZXNjcmlwdGlvbiI6ICJTaXN0ZW1hIGludGVncmFsIHBhcmEgZWwgY29udHJvbCBmaW5hbmNpZXJvIGRlIHR1cyBwcm95ZWN0b3MiLAogICJzdGFydF91cmwiOiAiLyIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzY2N2VlYSIsCiAgInRoZW1lX2NvbG9yIjogIiM2NjdlZWEiLAogICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdCIsCiAgImljb25zIjogWwogICAgewogICAgICAic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjNhV1IwYUQwaU1Ua3lJaUJvWldsbmFIUTlJakU1TWlJZ2VHMXNibk05SW1oMGRIQTZMeTkzZDNjdWR6TXViM0puTHpJd01EQXZjM1puSWo0OFpHVm1jejQ4YkdsdVpXRnlSM0poWkdsbGJuUWdhV1E5SW1FaUlIZ3hQU0l3SlNJZ2VURTlJakFsU1NJZ2VESTlJakV3TUNVaUlIa3lQU0l4TURBbElqNDhjM1J2Y0NCdlptWnpaWFE5SW1wbElTNWpTV1JGYzNSVFBpSXRZMjlzYjNJOUlpTTJOamRsWldFaUx6NDhjM1J2Y0NCdlptWnpaWFE5SW1wUU5VVmxaaTBURmlJZ2MzUnZjQzFqYjJ4dmNqMGlJemMyTkdKaE1pSXZQanhzYkdsdVpXRnlSM0poWkdsbGJuUStQQzlrWldaelBqeDNOemUyUldGU1FRaGRPbmQxU0VoKWJXNW5kSFJsK0lta2FkODg5VFNpSUJJMTVON2JtSnRabUZJTm4xZmdZVGtoK2pJS0o2R2k2a3dJaUpQVml0blNPWW9sUGpPNHRuQWtMdWxJenBSYTJWb1REV3pLN2YvKkRYMFNWR1ptNzRJQzRZSGxMMVVpUkdjMmR3VTF6U1hZeE1WaGxZVkxPL3V0Z2EvM1ovaFhpY3NibzMzV0lFcUJyVll5R05jVGtFUGJvKzE4djZKVW9CUGl5U1ZmN3lPNlQ2K1Y0UGhkM2tOL3NiVjEyUWpEOFBsV3g4dmtYT2JTTDZFLzlhUGVkUTVpT2RabDJBRVJDZ2Irc3VMT21mbmwwMWpJZjBNQmpzZT09IiwKICAgICAgInNpemVzIjogIjE5MngxOTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIgogICAgfSwKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUIzYVdSMGFEMGlOVEV5SWlCb1pXbG5hSFE5SWpVeE1pSWdlRzFzYm5NOUltaDBkSEE2THk5M2QzY3Vkek11YjNKbkx6SXdNREF2YzNabklqNDhaR1ZtY3o0OGJHbHVaV0Z5UjNKaFpHbGxiblFnYVdROUltRWlJSGd4UFNJd0pTSWdlVEU5SWpBbFNTSWdlREk5SWpFd01DVWlJSGt5UFNJeE1EQWxTajQ4YzNSdmNDQnZabVp6WlhROUltcGxJUzVqU1dSRmMzUlRQaUl0WTI5c2IzSTlJaU0yTmpkbFpXRWlMejQ4YzNSdmNDQnZabVp6WlhROUltcFFOVVZsWmkwVEZpSWdjM1J2Y0MxamIyeHZjajBpSXpjMk5HSmhNaUl2UGp4c2JHbHVaV0Z5UjNKaFpHbGxiblErUEM5a1pXWnpQang3TmplMlJXRlNRUWhkT25kMVNFaDliV251ZEhSbCtJbWthZDlJOVhTaUlCSTNON2JtSnRabUZJTm4xZmdZVGtoK2pJS0o2R2k2a3dJaUpQVml0blNPWW9sUGpPNHRuQWtMdWxJenBSYTJWb1REV3pLN2YvKkRYMFNWR1ptNzRJQzRZSGxMMVVpUkdjMmR3VTF6U1hZeE1WaGxZVkxPL3V0Z2EvM1ovaFhpY3NibzMzV0lFcUJyVll5R05jVGtFUGJvKzE4djZKVW9CUGl5U1ZmN3lPNlQ2K1Y0UGhkM2tOL3NiVjEyUWpEOFBsV3g4dmtYT2JTTDZFLzlhUGVkUTVpT2RabDJBRVJDZ2Irc3VMT21mbmwwMWpJZjBNQmpzZT09IiwKICAgICAgInNpemVzIjogIjUxMng1MTIiLAogICAgICAidHlwZSI6ICJpbWFnZS9zdmcreG1sIgogICAgfQogIF0KfQ==">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 10px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 { font-size: 2rem; margin-bottom: 10px; }
+        .form-section {
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        .form-group input, .form-group select {
+            padding: 10px;
+            border: 2px solid #e9ecef;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        .form-group input.error, .form-group select.error {
+            border-color: #dc3545;
+            animation: shake 0.5s ease-in-out;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        .form-group .error-message {
+            color: #dc3545;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 5px;
+            transition: transform 0.2s ease;
+        }
+        .btn:hover { transform: translateY(-1px); }
+        .btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .btn-download { background: linear-gradient(135deg, #28a745 0%, #20c997 100%); }
+        .btn-clear { background: linear-gradient(135deg, #dc3545 0%, #fd7e14 100%); }
+        .btn-eliminar {
+            background: #f44336;
+            padding: 5px 10px;
+            font-size: 12px;
+            margin: 2px;
+            cursor: pointer;
+        }
+        .btn-eliminar:hover {
+            background: #d32f2f;
+            transform: translateY(-1px);
+        }
+        .eliminar-btn {
+            /* Clase adicional para event delegation */
+            user-select: none;
+        }
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .table-section { padding: 20px; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-card h3 { font-size: 0.9em; margin-bottom: 8px; }
+        .stat-card .value { font-size: 1.5em; font-weight: bold; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        th {
+            background: #2c3e50;
+            color: white;
+            padding: 12px 8px;
+            text-align: left;
+            font-size: 12px;
+        }
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 12px;
+        }
+        tr:hover { background-color: #f8f9fa; }
+        .debe { color: #dc3545; font-weight: 600; }
+        .haber { color: #28a745; font-weight: 600; }
+        .monto { font-weight: 600; text-align: right; }
+        .saldo { font-weight: bold; text-align: right; }
+        .no-data {
+            text-align: center;
+            padding: 30px;
+            color: #6c757d;
+            font-style: italic;
+        }
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            max-width: 300px;
+            word-wrap: break-word;
+        }
+        .toast.show { transform: translateX(0); }
+        .toast.error { background: #dc3545; }
+        .toast.warning { background: #ffc107; color: #333; }
+        .filtro-grupo {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .filtro-grupo h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+        .btn-active {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%) !important;
+            transform: scale(1.02);
+        }
+        .filtros-aplicados {
+            background: #e8f5e8;
+            border: 1px solid #28a745;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        /* Mejoras PWA y Mobile */
+        .pwa-install-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 1001;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .pwa-install-banner.show {
+            transform: translateY(0);
+        }
+        .pwa-install-banner .close-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        /* Mejoras Mobile Específicas */
+        @media (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+            .container {
+                border-radius: 8px;
+                margin: 0;
+            }
+            .header {
+                padding: 15px;
+            }
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            .form-section {
+                padding: 15px;
+            }
+            .form-row { 
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .form-actions { 
+                flex-direction: column;
+                gap: 8px;
+            }
+            .btn { 
+                width: 100%;
+                padding: 15px 20px;
+                font-size: 16px;
+                min-height: 48px; /* Touch target mínimo */
+            }
+            table { 
+                font-size: 11px;
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            .table-section {
+                padding: 10px;
+                overflow-x: auto;
+            }
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .stat-card {
+                padding: 10px;
+            }
+            .stat-card h3 {
+                font-size: 0.8em;
+            }
+            .stat-card .value {
+                font-size: 1.2em;
+            }
+            
+            /* Botones eliminar más grandes en móvil */
+            .btn-eliminar {
+                padding: 8px 12px;
+                font-size: 14px;
+                min-height: 40px;
+                min-width: 40px;
+            }
+            
+            /* Inputs más grandes en móvil */
+            .form-group input, .form-group select {
+                padding: 12px;
+                font-size: 16px; /* Evita zoom en iOS */
+                min-height: 48px;
+            }
+            
+            /* Filtros más compactos en móvil */
+            .filtro-grupo {
+                padding: 10px;
+                margin-bottom: 15px;
+            }
+            
+            /* Toast más pequeño en móvil */
+            .toast {
+                right: 10px;
+                top: 10px;
+                left: 10px;
+                max-width: none;
+                text-align: center;
+            }
+        }
+        
+        /* Mejoras para pantallas muy pequeñas */
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.3rem;
+            }
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            table {
+                font-size: 10px;
+            }
+            th, td {
+                padding: 6px 4px;
+            }
+        }
+        
+        /* Modo landscape en móvil */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .stats {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .form-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Mejoras para touch */
+        .btn, button {
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+        
+        /* Mejoras para accesibilidad en móvil */
+        .form-group input:focus, .form-group select:focus {
+            transform: scale(1.02);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Gestión WOLO</h1>
+            <p>Sistema integral para el control financiero de tus proyectos</p>
+        </div>
+
+        <div id="toast" class="toast"></div>
+
+        <div class="form-section">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fecha">📅 Fecha</label>
+                    <input type="date" id="fecha" required>
+                    <div class="error-message" id="fecha-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="tipo">⚖️ Tipo</label>
+                    <select id="tipo" required>
+                        <option value="">Seleccionar...</option>
+                        <option value="Debe">Debe (Egreso)</option>
+                        <option value="Haber">Haber (Ingreso)</option>
+                    </select>
+                    <div class="error-message" id="tipo-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="emprendimiento">🏢 Emprendimiento</label>
+                    <select id="emprendimiento" required>
+                        <option value="">Seleccionar...</option>
+                        <option value="HUMUS">HUMUS</option>
+                        <option value="SOLO PASTO">SOLO PASTO</option>
+                        <option value="SINERGIA">SINERGIA</option>
+                        <option value="AIRBNB">AIRBNB</option>
+                        <option value="OTROS">OTROS</option>
+                    </select>
+                    <div class="error-message" id="emprendimiento-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="concepto">📝 Concepto</label>
+                    <input type="text" id="concepto" placeholder="Ej: Compra insumos..." required maxlength="200">
+                    <div class="error-message" id="concepto-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="destinatario">👤 Destinatario</label>
+                    <input type="text" id="destinatario" placeholder="Ej: Juan Pérez..." required maxlength="100">
+                    <div class="error-message" id="destinatario-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="moneda">💰 Moneda</label>
+                    <select id="moneda" required>
+                        <option value="">Seleccionar...</option>
+                        <option value="ARS">$ (Pesos Argentinos)</option>
+                        <option value="USD">USD (Dólares)</option>
+                    </select>
+                    <div class="error-message" id="moneda-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="monto">💵 Monto</label>
+                    <input type="number" id="monto" step="0.01" min="0.01" max="999999999" required placeholder="0.00">
+                    <div class="error-message" id="monto-error"></div>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="button" class="btn" id="btnAgregar">➕ Agregar</button>
+                <button type="button" class="btn btn-download" id="btnExcel">📥 Excel</button>
+                <button type="button" class="btn btn-clear" id="btnLimpiar">🗑️ Limpiar</button>
+            </div>
+        </div>
+
+        <div class="table-section">
+            <div class="stats" id="stats"></div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>📅 Fecha</th>
+                        <th>⚖️ Tipo</th>
+                        <th>🏢 Emprendimiento</th>
+                        <th>📝 Concepto</th>
+                        <th>👤 Destinatario</th>
+                        <th>💰 Moneda</th>
+                        <th>💵 Monto</th>
+                        <th>💰 Saldo</th>
+                        <th>🗑️ Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="movimientosBody">
+                    <tr><td colspan="9" class="no-data">No hay movimientos registrados. ¡Agrega el primero!</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="form-section">
+            <div class="filtros-fecha">
+                <h3>🔍 Filtros Avanzados</h3>
+                
+                <!-- Filtros por fechas -->
+                <div class="filtro-grupo">
+                    <h4>📅 Por Fechas</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fechaDesde">Desde:</label>
+                            <input type="date" id="fechaDesde">
+                        </div>
+                        <div class="form-group">
+                            <label for="fechaHasta">Hasta:</label>
+                            <input type="date" id="fechaHasta">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filtros por categorías -->
+                <div class="filtro-grupo">
+                    <h4>🏷️ Por Categorías</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="filtroEmprendimiento">🏢 Emprendimiento:</label>
+                            <select id="filtroEmprendimiento">
+                                <option value="">Todos los emprendimientos</option>
+                                <option value="HUMUS">HUMUS</option>
+                                <option value="SOLO PASTO">SOLO PASTO</option>
+                                <option value="SINERGIA">SINERGIA</option>
+                                <option value="AIRBNB">AIRBNB</option>
+                                <option value="OTROS">OTROS</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="filtroTipo">⚖️ Tipo:</label>
+                            <select id="filtroTipo">
+                                <option value="">Debe y Haber</option>
+                                <option value="Debe">Solo Egresos (Debe)</option>
+                                <option value="Haber">Solo Ingresos (Haber)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="filtroMoneda">💰 Moneda:</label>
+                            <select id="filtroMoneda">
+                                <option value="">Todas las monedas</option>
+                                <option value="ARS">Solo Pesos (ARS)</option>
+                                <option value="USD">Solo Dólares (USD)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filtros por montos -->
+                <div class="filtro-grupo">
+                    <h4>💵 Por Montos</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="montoDesde">Monto desde:</label>
+                            <input type="number" id="montoDesde" placeholder="0.00" step="0.01" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="montoHasta">Monto hasta:</label>
+                            <input type="number" id="montoHasta" placeholder="999999.99" step="0.01" min="0">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filtros de texto -->
+                <div class="filtro-grupo">
+                    <h4>🔎 Búsqueda de Texto</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="buscarConcepto">📝 Buscar en concepto:</label>
+                            <input type="text" id="buscarConcepto" placeholder="Ej: compra, venta, pago..." maxlength="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="buscarDestinatario">👤 Buscar destinatario:</label>
+                            <input type="text" id="buscarDestinatario" placeholder="Ej: Juan, María..." maxlength="100">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="form-row" style="margin-top: 20px;">
+                    <button type="button" class="btn" id="btnAplicarFiltros">🔍 Aplicar Filtros</button>
+                    <button type="button" class="btn" id="btnLimpiarFiltros">🔄 Limpiar Filtros</button>
+                    <button type="button" class="btn btn-download" id="btnExportarFiltrados" style="display: none;">📄 Exportar Filtrados</button>
+                </div>
+
+                <!-- Indicador de filtros activos -->
+                <div id="indicadorFiltros" style="display: none; margin-top: 15px; padding: 10px; background: #e8f5e8; border-radius: 5px; border-left: 4px solid #28a745;">
+                    <strong>🎯 Filtros activos:</strong> <span id="textoFiltros"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales
+        let movimientos = [];
+        let saldoAcumulado = 0;
+        let filtroActivo = false;
+        let movimientosFiltrados = [];
+        let timeoutToast = null;
+        let contadorId = 1;
+
+        // Variables PWA
+        let deferredPrompt;
+        let pwaInstalled = false;
+
+        // Configuración para almacenamiento (memoria en lugar de localStorage para compatibilidad)
+        let datosMemoria = { movimientos: [], saldoAcumulado: 0, contadorId: 1 };
+
+        // ==================== PWA FUNCTIONALITY ====================
+        function mostrarBannerInstalacion() {
+            if (pwaInstalled) return;
+            
+            const banner = document.createElement('div');
+            banner.className = 'pwa-install-banner';
+            banner.id = 'pwa-banner';
+            banner.innerHTML = `
+                <div>
+                    <strong>📱 ¡Instala WOLO como App!</strong><br>
+                    <small>Úsala sin conexión y desde tu pantalla de inicio</small>
+                </div>
+                <div>
+                    <button class="btn" id="install-btn" style="margin: 0 10px 0 0;">Instalar</button>
+                    <button class="close-btn" id="close-banner">✕</button>
+                </div>
+            `;
+            
+            document.body.appendChild(banner);
+            
+            // Mostrar banner después de un delay
+            setTimeout(() => {
+                banner.classList.add('show');
+            }, 2000);
+            
+            // Event listeners
+            document.getElementById('install-btn').addEventListener('click', instalarPWA);
+            document.getElementById('close-banner').addEventListener('click', () => {
+                banner.classList.remove('show');
+                setTimeout(() => banner.remove(), 300);
+            });
+        }
+
+        async function instalarPWA() {
+            if (!deferredPrompt) {
+                mostrarToast('❌ Instalación no disponible en este navegador', 'warning');
+                return;
+            }
+            
+            try {
+                // Mostrar prompt de instalación
+                deferredPrompt.prompt();
+                
+                // Esperar respuesta del usuario
+                const { outcome } = await deferredPrompt.userChoice;
+                
+                if (outcome === 'accepted') {
+                    mostrarToast('🎉 ¡App instalada correctamente!', 'success');
+                    pwaInstalled = true;
+                    
+                    // Ocultar banner
+                    const banner = document.getElementById('pwa-banner');
+                    if (banner) {
+                        banner.classList.remove('show');
+                        setTimeout(() => banner.remove(), 300);
+                    }
+                } else {
+                    mostrarToast('📱 Instalación cancelada', 'warning');
+                }
+                
+                // Limpiar el prompt
+                deferredPrompt = null;
+                
+            } catch (error) {
+                console.error('Error instalando PWA:', error);
+                mostrarToast('Error durante la instalación', 'error');
+            }
+        }
+
+        function detectarPWA() {
+            // Detectar si ya está instalado
+            if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) {
+                pwaInstalled = true;
+                console.log('📱 App ya está instalada como PWA');
+                mostrarToast('📱 Ejecutándose como App instalada', 'success');
+                return;
+            }
+            
+            // Detectar soporte PWA
+            if ('serviceWorker' in navigator && 'PushManager' in window) {
+                console.log('✅ PWA soportado en este navegador');
+                
+                // Listener para beforeinstallprompt
+                window.addEventListener('beforeinstallprompt', (e) => {
+                    e.preventDefault();
+                    deferredPrompt = e;
+                    console.log('📥 Prompt de instalación disponible');
+                    
+                    // Mostrar banner después de que la app esté cargada
+                    setTimeout(mostrarBannerInstalacion, 3000);
+                });
+                
+                // Listener para instalación completada
+                window.addEventListener('appinstalled', (e) => {
+                    console.log('🎉 PWA instalada exitosamente');
+                    pwaInstalled = true;
+                    mostrarToast('🎉 ¡App instalada correctamente!', 'success');
+                });
+                
+            } else {
+                console.log('❌ PWA no soportado en este navegador');
+            }
+        }
+
+        function registrarServiceWorker() {
+            if ('serviceWorker' in navigator) {
+                // Service Worker inline para funcionalidad básica
+                const swCode = `
+                    const CACHE_NAME = 'wolo-v1';
+                    const urlsToCache = ['/'];
+                    
+                    self.addEventListener('install', event => {
+                        console.log('SW: Instalando...');
+                        self.skipWaiting();
+                    });
+                    
+                    self.addEventListener('activate', event => {
+                        console.log('SW: Activando...');
+                        event.waitUntil(clients.claim());
+                    });
+                    
+                    self.addEventListener('fetch', event => {
+                        // Estrategia básica: network first, cache fallback
+                        event.respondWith(
+                            fetch(event.request)
+                                .catch(() => caches.match(event.request))
+                        );
+                    });
+                `;
+                
+                const blob = new Blob([swCode], { type: 'application/javascript' });
+                const swUrl = URL.createObjectURL(blob);
+                
+                navigator.serviceWorker.register(swUrl)
+                    .then(registration => {
+                        console.log('✅ Service Worker registrado:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('❌ Error registrando Service Worker:', error);
+                    });
+            }
+        }
+
+        // ==================== MOBILE OPTIMIZATIONS ====================
+        function optimizarParaMovil() {
+            // Detectar si es móvil
+            const esMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (esMobile) {
+                console.log('📱 Dispositivo móvil detectado');
+                
+                // Prevenir zoom accidental
+                document.addEventListener('touchstart', function(e) {
+                    if (e.touches.length > 1) {
+                        e.preventDefault();
+                    }
+                });
+                
+                // Mejorar scroll
+                document.body.style.overscrollBehavior = 'contain';
+                
+                // Feedback táctil en botones
+                document.addEventListener('touchstart', function(e) {
+                    if (e.target.classList.contains('btn')) {
+                        e.target.style.transform = 'scale(0.95)';
+                    }
+                });
+                
+                document.addEventListener('touchend', function(e) {
+                    if (e.target.classList.contains('btn')) {
+                        setTimeout(() => {
+                            e.target.style.transform = '';
+                        }, 150);
+                    }
+                });
+                
+                // Mostrar mensaje de instalación específico para móvil
+                setTimeout(() => {
+                    if (!pwaInstalled) {
+                        mostrarInstruccionesMovil();
+                    }
+                }, 5000);
+            }
+        }
+
+        function mostrarInstruccionesMovil() {
+            const esSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+            const esChrome = /Chrome/.test(navigator.userAgent);
+            
+            let instrucciones = '';
+            
+            if (esSafari) {
+                instrucciones = `
+                    📱 <strong>Para usar como App en Safari:</strong><br>
+                    1. Toca el botón "Compartir" ⬆️<br>
+                    2. Selecciona "Añadir a pantalla de inicio" ➕<br>
+                    3. ¡Listo! Tendrás WOLO como app
+                `;
+            } else if (esChrome) {
+                instrucciones = `
+                    📱 <strong>Para usar como App en Chrome:</strong><br>
+                    1. Toca el menú ⋮ (tres puntos)<br>
+                    2. Selecciona "Añadir a pantalla de inicio"<br>
+                    3. ¡Listo! Tendrás WOLO como app
+                `;
+            } else {
+                instrucciones = `
+                    📱 <strong>Para usar como App:</strong><br>
+                    Busca la opción "Añadir a pantalla de inicio"<br>
+                    en el menú de tu navegador
+                `;
+            }
+            
+            const banner = document.createElement('div');
+            banner.className = 'pwa-install-banner';
+            banner.innerHTML = `
+                <div style="font-size: 14px;">
+                    ${instrucciones}
+                </div>
+                <button class="close-btn">Entendido</button>
+            `;
+            
+            document.body.appendChild(banner);
+            banner.classList.add('show');
+            
+            banner.querySelector('.close-btn').addEventListener('click', () => {
+                banner.classList.remove('show');
+                setTimeout(() => banner.remove(), 300);
+            });
+        }
+
+        // ==================== UTILIDADES ====================
+        function mostrarToast(mensaje, tipo = 'success') {
+            console.log(`Toast [${tipo}]: ${mensaje}`);
+            const toast = document.getElementById('toast');
+            if (!toast) return;
+
+            if (timeoutToast) clearTimeout(timeoutToast);
+
+            toast.textContent = mensaje;
+            toast.className = `toast ${tipo} show`;
+            
+            timeoutToast = setTimeout(() => {
+                toast.classList.remove('show');
+            }, tipo === 'error' ? 5000 : 3000);
+        }
+
+        function formatearFecha(fechaString) {
+            try {
+                const [year, month, day] = fechaString.split('-');
+                return new Date(parseInt(year), parseInt(month) - 1, parseInt(day))
+                    .toLocaleDateString('es-AR');
+            } catch (error) {
+                console.error('Error formateando fecha:', error);
+                return fechaString;
+            }
+        }
+
+        function formatearMoneda(monto, moneda) {
+            const numero = parseFloat(monto);
+            if (isNaN(numero)) return '$ 0.00';
+            
+            return moneda === 'USD' ? 
+                `USD ${numero.toFixed(2)}` : 
+                `$ ${numero.toLocaleString('es-AR', {minimumFractionDigits: 2})}`;
+        }
+
+        function formatearPesos(monto) {
+            const numero = parseFloat(monto);
+            if (isNaN(numero)) return '$ 0.00';
+            return `$ ${numero.toLocaleString('es-AR', {minimumFractionDigits: 2})}`;
+        }
+
+        function sanitizarTexto(texto) {
+            return texto.toString().trim().substring(0, 200);
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // ==================== VALIDACIONES ====================
+        function validarMovimiento(datos) {
+            const errores = [];
+            
+            if (!datos.fecha) {
+                errores.push({campo: 'fecha', mensaje: 'Fecha es requerida'});
+            } else {
+                const fecha = new Date(datos.fecha + 'T00:00:00');
+                if (isNaN(fecha.getTime())) {
+                    errores.push({campo: 'fecha', mensaje: 'Fecha inválida'});
+                }
+            }
+            
+            if (!datos.tipo || !['Debe', 'Haber'].includes(datos.tipo)) {
+                errores.push({campo: 'tipo', mensaje: 'Tipo es requerido'});
+            }
+            
+            const emprendimientosValidos = ['HUMUS', 'SOLO PASTO', 'SINERGIA', 'AIRBNB', 'OTROS'];
+            if (!datos.emprendimiento || !emprendimientosValidos.includes(datos.emprendimiento)) {
+                errores.push({campo: 'emprendimiento', mensaje: 'Emprendimiento es requerido'});
+            }
+            
+            if (!datos.concepto.trim()) {
+                errores.push({campo: 'concepto', mensaje: 'Concepto es requerido'});
+            } else if (datos.concepto.trim().length < 3) {
+                errores.push({campo: 'concepto', mensaje: 'Concepto muy corto (mín. 3 caracteres)'});
+            }
+            
+            if (!datos.destinatario.trim()) {
+                errores.push({campo: 'destinatario', mensaje: 'Destinatario es requerido'});
+            } else if (datos.destinatario.trim().length < 2) {
+                errores.push({campo: 'destinatario', mensaje: 'Destinatario muy corto (mín. 2 caracteres)'});
+            }
+            
+            if (!datos.moneda || !['ARS', 'USD'].includes(datos.moneda)) {
+                errores.push({campo: 'moneda', mensaje: 'Moneda es requerida'});
+            }
+            
+            const monto = parseFloat(datos.monto);
+            if (isNaN(monto)) {
+                errores.push({campo: 'monto', mensaje: 'Monto debe ser un número válido'});
+            } else if (monto <= 0) {
+                errores.push({campo: 'monto', mensaje: 'Monto debe ser mayor a 0'});
+            } else if (monto > 999999999) {
+                errores.push({campo: 'monto', mensaje: 'Monto demasiado grande'});
+            }
+            
+            return errores;
+        }
+
+        function mostrarErroresValidacion(errores) {
+            // Limpiar errores previos
+            document.querySelectorAll('.form-group input, .form-group select').forEach(el => {
+                el.classList.remove('error');
+            });
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+                el.textContent = '';
+            });
+
+            // Mostrar nuevos errores
+            errores.forEach(error => {
+                const campo = document.getElementById(error.campo);
+                const errorDiv = document.getElementById(`${error.campo}-error`);
+                
+                if (campo) campo.classList.add('error');
+                if (errorDiv) {
+                    errorDiv.textContent = error.mensaje;
+                    errorDiv.style.display = 'block';
+                }
+            });
+        }
+
+        // ==================== MANEJO DE DATOS ====================
+        function guardarDatos() {
+            try {
+                datosMemoria = {
+                    movimientos: [...movimientos],
+                    saldoAcumulado,
+                    contadorId,
+                    timestamp: new Date().toISOString()
+                };
+                console.log('✅ Datos guardados en memoria');
+            } catch (error) {
+                console.error('💥 Error guardando datos:', error);
+                mostrarToast('Error guardando datos', 'error');
+            }
+        }
+
+        function cargarDatos() {
+            try {
+                if (datosMemoria && datosMemoria.movimientos) {
+                    movimientos = Array.isArray(datosMemoria.movimientos) ? [...datosMemoria.movimientos] : [];
+                    saldoAcumulado = typeof datosMemoria.saldoAcumulado === 'number' ? datosMemoria.saldoAcumulado : 0;
+                    contadorId = typeof datosMemoria.contadorId === 'number' ? datosMemoria.contadorId : 1;
+                    
+                    // Validar movimientos
+                    movimientos = movimientos.filter(mov => 
+                        mov && typeof mov === 'object' && mov.id && mov.fecha && mov.tipo && mov.monto
+                    );
+                    
+                    console.log(`📦 ${movimientos.length} movimientos cargados`);
+                } else {
+                    movimientos = [];
+                    saldoAcumulado = 0;
+                    contadorId = 1;
+                }
+            } catch (error) {
+                console.error('💥 Error cargando datos:', error);
+                movimientos = [];
+                saldoAcumulado = 0;
+                contadorId = 1;
+            }
+        }
+
+        // ==================== FUNCIONES PRINCIPALES ====================
+        function agregarMovimiento() {
+            console.log('🔄 Iniciando agregar movimiento...');
+            
+            try {
+                const btnAgregar = document.getElementById('btnAgregar');
+                btnAgregar.disabled = true;
+
+                const datos = {
+                    fecha: document.getElementById('fecha').value,
+                    tipo: document.getElementById('tipo').value,
+                    emprendimiento: document.getElementById('emprendimiento').value,
+                    concepto: sanitizarTexto(document.getElementById('concepto').value),
+                    destinatario: sanitizarTexto(document.getElementById('destinatario').value),
+                    moneda: document.getElementById('moneda').value,
+                    monto: document.getElementById('monto').value
+                };
+
+                console.log('📋 Datos obtenidos:', datos);
+
+                const errores = validarMovimiento(datos);
+                if (errores.length > 0) {
+                    mostrarErroresValidacion(errores);
+                    mostrarToast(`${errores.length} error(es) en el formulario`, 'error');
+                    return;
+                }
+
+                mostrarErroresValidacion([]);
+
+                const monto = parseFloat(datos.monto);
+                const movimiento = {
+                    id: contadorId++,
+                    fecha: datos.fecha,
+                    tipo: datos.tipo,
+                    emprendimiento: datos.emprendimiento,
+                    concepto: datos.concepto,
+                    destinatario: datos.destinatario,
+                    moneda: datos.moneda,
+                    monto: monto,
+                    saldoAcumulado: 0
+                };
+
+                console.log('📦 Movimiento creado:', movimiento);
+
+                movimientos.push(movimiento);
+                recalcularSaldos();
+                
+                guardarDatos();
+                actualizarTabla();
+                actualizarEstadisticas();
+                limpiarFormulario();
+
+                mostrarToast('✅ Movimiento agregado correctamente', 'success');
+
+            } catch (error) {
+                console.error('💥 Error agregando movimiento:', error);
+                mostrarToast('Error inesperado: ' + error.message, 'error');
+            } finally {
+                const btnAgregar = document.getElementById('btnAgregar');
+                if (btnAgregar) btnAgregar.disabled = false;
+            }
+        }
+
+        function eliminarMovimiento(id) {
+            console.log('🗑️ Eliminando movimiento ID:', id);
+            
+            // Mostrar confirmación
+            if (!confirm(`¿Eliminar este movimiento?\n\nEsta acción no se puede deshacer.`)) {
+                console.log('❌ Usuario canceló eliminación');
+                return;
+            }
+
+            try {
+                // Buscar el movimiento
+                const index = movimientos.findIndex(mov => mov.id === id);
+                console.log('📍 Índice encontrado:', index);
+                
+                if (index === -1) {
+                    const mensaje = `Movimiento ID ${id} no encontrado`;
+                    console.log('❌', mensaje);
+                    console.log('📋 IDs disponibles:', movimientos.map(m => m.id));
+                    mostrarToast(mensaje, 'error');
+                    return;
+                }
+
+                // Eliminar el movimiento
+                const movimientoEliminado = movimientos[index];
+                movimientos.splice(index, 1);
+                console.log('✅ Movimiento eliminado:', movimientoEliminado.concepto);
+                
+                // Actualizar todo
+                recalcularSaldos();
+                guardarDatos();
+                actualizarTabla();
+                actualizarEstadisticas();
+                
+                // Si hay filtros activos, volver a aplicarlos
+                if (filtroActivo) {
+                    console.log('🔄 Reaplicando filtros...');
+                    aplicarFiltrosAvanzados();
+                }
+                
+                mostrarToast('✅ Movimiento eliminado correctamente', 'success');
+                console.log('🎉 Eliminación completada');
+                
+            } catch (error) {
+                console.error('💥 Error eliminando movimiento:', error);
+                mostrarToast('Error eliminando movimiento: ' + error.message, 'error');
+            }
+        }
+
+        function recalcularSaldos() {
+            try {
+                movimientos.sort((a, b) => {
+                    const fechaA = new Date(a.fecha);
+                    const fechaB = new Date(b.fecha);
+                    if (fechaA.getTime() === fechaB.getTime()) {
+                        return a.id - b.id;
+                    }
+                    return fechaA - fechaB;
+                });
+
+                let saldo = 0;
+                movimientos.forEach(mov => {
+                    const montoParaSaldo = mov.tipo === 'Debe' ? -mov.monto : mov.monto;
+                    saldo += montoParaSaldo;
+                    mov.saldoAcumulado = saldo;
+                });
+                
+                saldoAcumulado = saldo;
+                console.log(`💰 Saldo recalculado: ${formatearPesos(saldoAcumulado)}`);
+            } catch (error) {
+                console.error('💥 Error recalculando saldos:', error);
+            }
+        }
+
+        function actualizarTabla(datos = null) {
+            try {
+                const tbody = document.getElementById('movimientosBody');
+                if (!tbody) return;
+
+                const datosAMostrar = datos || movimientos;
+                console.log(`📊 Actualizando tabla con ${datosAMostrar.length} movimientos`);
+
+                if (datosAMostrar.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="9" class="no-data">No hay movimientos registrados. ¡Agrega el primero!</td></tr>';
+                    return;
+                }
+
+                tbody.innerHTML = '';
+
+                const ordenados = [...datosAMostrar].sort((a, b) => {
+                    const fechaA = new Date(a.fecha);
+                    const fechaB = new Date(b.fecha);
+                    if (fechaA.getTime() === fechaB.getTime()) {
+                        return b.id - a.id;
+                    }
+                    return fechaB - fechaA;
+                });
+
+                ordenados.forEach(mov => {
+                    const row = tbody.insertRow();
+                    
+                    row.insertCell(0).textContent = formatearFecha(mov.fecha);
+                    
+                    const tipoCell = row.insertCell(1);
+                    tipoCell.textContent = mov.tipo;
+                    tipoCell.className = mov.tipo.toLowerCase();
+                    
+                    row.insertCell(2).textContent = mov.emprendimiento;
+                    
+                    const conceptoTruncado = mov.concepto.length > 25 ? 
+                        mov.concepto.substring(0, 25) + '...' : 
+                        mov.concepto;
+                    const conceptoCell = row.insertCell(3);
+                    conceptoCell.textContent = conceptoTruncado;
+                    conceptoCell.title = mov.concepto;
+                    
+                    const destinatarioTruncado = mov.destinatario.length > 18 ? 
+                        mov.destinatario.substring(0, 18) + '...' : 
+                        mov.destinatario;
+                    const destinatarioCell = row.insertCell(4);
+                    destinatarioCell.textContent = destinatarioTruncado;
+                    destinatarioCell.title = mov.destinatario;
+                    
+                    row.insertCell(5).textContent = mov.moneda;
+                    
+                    const montoCell = row.insertCell(6);
+                    montoCell.textContent = formatearMoneda(mov.monto, mov.moneda);
+                    montoCell.className = 'monto';
+                    
+                    const saldoCell = row.insertCell(7);
+                    saldoCell.textContent = formatearPesos(mov.saldoAcumulado);
+                    saldoCell.className = 'saldo ' + (mov.saldoAcumulado >= 0 ? 'haber' : 'debe');
+                    
+                    const accionCell = row.insertCell(8);
+                    // Usar data-attribute para Brave compatibility - sin onclick inline
+                    accionCell.innerHTML = `<button class="btn btn-eliminar eliminar-btn" data-movimiento-id="${mov.id}" title="Eliminar movimiento">🗑️</button>`;
+                    accionCell.style.textAlign = 'center';
+                    
+                    console.log(`🔧 Botón eliminar creado para ID: ${mov.id} (usando data-attribute)`);
+                });
+
+                console.log('✅ Tabla actualizada correctamente');
+            } catch (error) {
+                console.error('💥 Error actualizando tabla:', error);
+                mostrarToast('Error actualizando tabla', 'error');
+            }
+        }
+
+        function actualizarEstadisticas(datos = null) {
+            try {
+                const stats = document.getElementById('stats');
+                if (!stats) return;
+
+                const datosAMostrar = datos || movimientos;
+
+                if (datosAMostrar.length === 0) {
+                    stats.innerHTML = '';
+                    return;
+                }
+
+                let totalIngresos = 0;
+                let totalEgresos = 0;
+
+                datosAMostrar.forEach(mov => {
+                    const monto = parseFloat(mov.monto) || 0;
+                    if (mov.tipo === 'Haber') {
+                        totalIngresos += monto;
+                    } else {
+                        totalEgresos += monto;
+                    }
+                });
+
+                const saldoFinal = datos ? (totalIngresos - totalEgresos) : saldoAcumulado;
+
+                stats.innerHTML = `
+                    <div class="stat-card">
+                        <h3>💰 Saldo ${datos ? 'Período' : 'Final'}</h3>
+                        <div class="value">${formatearPesos(saldoFinal)}</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>📈 Total Ingresos</h3>
+                        <div class="value">${formatearPesos(totalIngresos)}</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>📉 Total Egresos</h3>
+                        <div class="value">${formatearPesos(totalEgresos)}</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>📊 Movimientos</h3>
+                        <div class="value">${datosAMostrar.length}</div>
+                    </div>
+                `;
+            } catch (error) {
+                console.error('💥 Error actualizando estadísticas:', error);
+            }
+        }
+
+        // ==================== FILTROS ====================
+        function aplicarFiltrosAvanzados() {
+            console.log('🔍 Aplicando filtros avanzados...');
+            
+            try {
+                const filtros = {
+                    fechaDesde: document.getElementById('fechaDesde').value || null,
+                    fechaHasta: document.getElementById('fechaHasta').value || null,
+                    emprendimiento: document.getElementById('filtroEmprendimiento').value || null,
+                    tipo: document.getElementById('filtroTipo').value || null,
+                    moneda: document.getElementById('filtroMoneda').value || null,
+                    montoDesde: (() => {
+                        const val = document.getElementById('montoDesde').value;
+                        return val === '' ? 0 : (parseFloat(val) || 0);
+                    })(),
+                    montoHasta: (() => {
+                        const val = document.getElementById('montoHasta').value;
+                        return val === '' ? Infinity : (parseFloat(val) || Infinity);
+                    })(),
+                    buscarConcepto: document.getElementById('buscarConcepto').value.toLowerCase().trim(),
+                    buscarDestinatario: document.getElementById('buscarDestinatario').value.toLowerCase().trim()
+                };
+
+                if (filtros.fechaDesde && filtros.fechaHasta && filtros.fechaDesde > filtros.fechaHasta) {
+                    mostrarToast('La fecha "desde" no puede ser mayor que "hasta"', 'error');
+                    return;
+                }
+
+                if (filtros.montoDesde > filtros.montoHasta) {
+                    mostrarToast('El monto "desde" no puede ser mayor que "hasta"', 'error');
+                    return;
+                }
+
+                movimientosFiltrados = movimientos.filter(mov => {
+                    if (filtros.fechaDesde && mov.fecha < filtros.fechaDesde) return false;
+                    if (filtros.fechaHasta && mov.fecha > filtros.fechaHasta) return false;
+                    if (filtros.emprendimiento && mov.emprendimiento !== filtros.emprendimiento) return false;
+                    if (filtros.tipo && mov.tipo !== filtros.tipo) return false;
+                    if (filtros.moneda && mov.moneda !== filtros.moneda) return false;
+                    if (mov.monto < filtros.montoDesde || mov.monto > filtros.montoHasta) return false;
+                    if (filtros.buscarConcepto && !mov.concepto.toLowerCase().includes(filtros.buscarConcepto)) return false;
+                    if (filtros.buscarDestinatario && !mov.destinatario.toLowerCase().includes(filtros.buscarDestinatario)) return false;
+                    return true;
+                });
+
+                filtroActivo = true;
+                actualizarTabla(movimientosFiltrados);
+                actualizarEstadisticas(movimientosFiltrados);
+                mostrarIndicadorFiltros(filtros);
+                
+                document.getElementById('btnExportarFiltrados').style.display = 'inline-flex';
+                mostrarToast(`🎯 ${movimientosFiltrados.length} movimientos encontrados`, 'success');
+            } catch (error) {
+                console.error('💥 Error aplicando filtros:', error);
+                mostrarToast('Error aplicando filtros', 'error');
+            }
+        }
+
+        function mostrarIndicadorFiltros(filtros) {
+            try {
+                const indicador = document.getElementById('indicadorFiltros');
+                const texto = document.getElementById('textoFiltros');
+                if (!indicador || !texto) return;
+                
+                let filtrosTexto = [];
+                
+                if (filtros.fechaDesde || filtros.fechaHasta) {
+                    const desde = filtros.fechaDesde ? formatearFecha(filtros.fechaDesde) : 'inicio';
+                    const hasta = filtros.fechaHasta ? formatearFecha(filtros.fechaHasta) : 'fin';
+                    filtrosTexto.push(`📅 ${desde} - ${hasta}`);
+                }
+                
+                if (filtros.emprendimiento) filtrosTexto.push(`🏢 ${filtros.emprendimiento}`);
+                if (filtros.tipo) filtrosTexto.push(`⚖️ ${filtros.tipo}`);
+                if (filtros.moneda) filtrosTexto.push(`💰 ${filtros.moneda}`);
+                
+                if (filtros.montoDesde > 0 || filtros.montoHasta < Infinity) {
+                    const desde = filtros.montoDesde > 0 ? `$${filtros.montoDesde}` : '$0';
+                    const hasta = filtros.montoHasta < Infinity ? `$${filtros.montoHasta}` : '∞';
+                    filtrosTexto.push(`💵 ${desde} - ${hasta}`);
+                }
+                
+                if (filtros.buscarConcepto) filtrosTexto.push(`📝 "${filtros.buscarConcepto}"`);
+                if (filtros.buscarDestinatario) filtrosTexto.push(`👤 "${filtros.buscarDestinatario}"`);
+                
+                if (filtrosTexto.length > 0) {
+                    texto.textContent = filtrosTexto.join(' | ');
+                    indicador.style.display = 'block';
+                } else {
+                    indicador.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('💥 Error mostrando indicador de filtros:', error);
+            }
+        }
+
+        function limpiarTodosFiltros() {
+            try {
+                const campos = [
+                    'fechaDesde', 'fechaHasta', 'filtroEmprendimiento', 
+                    'filtroTipo', 'filtroMoneda', 'montoDesde', 'montoHasta',
+                    'buscarConcepto', 'buscarDestinatario'
+                ];
+
+                campos.forEach(campo => {
+                    const elemento = document.getElementById(campo);
+                    if (elemento) elemento.value = '';
+                });
+                
+                filtroActivo = false;
+                movimientosFiltrados = [];
+                actualizarTabla();
+                actualizarEstadisticas();
+                
+                const indicador = document.getElementById('indicadorFiltros');
+                const btnExportar = document.getElementById('btnExportarFiltrados');
+                
+                if (indicador) indicador.style.display = 'none';
+                if (btnExportar) btnExportar.style.display = 'none';
+                
+                mostrarToast('🔄 Todos los filtros eliminados', 'success');
+            } catch (error) {
+                console.error('💥 Error limpiando filtros:', error);
+                mostrarToast('Error limpiando filtros', 'error');
+            }
+        }
+
+        // ==================== EXPORTAR ====================
+        function descargarExcel() {
+            if (movimientos.length === 0) {
+                mostrarToast('No hay datos para exportar', 'warning');
+                return;
+            }
+
+            try {
+                const wb = XLSX.utils.book_new();
+                const datos = movimientos.map(mov => ({
+                    'Fecha': formatearFecha(mov.fecha),
+                    'Tipo': mov.tipo,
+                    'Emprendimiento': mov.emprendimiento,
+                    'Concepto': mov.concepto,
+                    'Destinatario': mov.destinatario,
+                    'Moneda': mov.moneda,
+                    'Monto': mov.monto,
+                    'Saldo': mov.saldoAcumulado
+                }));
+
+                const ws = XLSX.utils.json_to_sheet(datos);
+                XLSX.utils.book_append_sheet(wb, ws, 'Movimientos WOLO');
+                
+                const archivo = `WOLO_${new Date().toISOString().split('T')[0]}.xlsx`;
+                XLSX.writeFile(wb, archivo);
+                
+                mostrarToast(`📊 ${movimientos.length} movimientos exportados`, 'success');
+            } catch (error) {
+                console.error('💥 Error generando Excel:', error);
+                mostrarToast('Error generando archivo Excel', 'error');
+            }
+        }
+
+        function exportarFiltrados() {
+            if (movimientosFiltrados.length === 0) {
+                mostrarToast('No hay datos filtrados para exportar', 'warning');
+                return;
+            }
+
+            try {
+                const wb = XLSX.utils.book_new();
+                const datos = movimientosFiltrados.map(mov => ({
+                    'Fecha': formatearFecha(mov.fecha),
+                    'Tipo': mov.tipo,
+                    'Emprendimiento': mov.emprendimiento,
+                    'Concepto': mov.concepto,
+                    'Destinatario': mov.destinatario,
+                    'Moneda': mov.moneda,
+                    'Monto': mov.monto,
+                    'Saldo': mov.saldoAcumulado
+                }));
+
+                const ws = XLSX.utils.json_to_sheet(datos);
+                XLSX.utils.book_append_sheet(wb, ws, 'Movimientos Filtrados');
+                
+                const archivo = `WOLO_Filtrados_${new Date().toISOString().split('T')[0]}.xlsx`;
+                XLSX.writeFile(wb, archivo);
+                
+                mostrarToast(`📊 ${movimientosFiltrados.length} movimientos exportados`, 'success');
+            } catch (error) {
+                console.error('💥 Error exportando filtrados:', error);
+                mostrarToast('Error exportando datos filtrados', 'error');
+            }
+        }
+
+        // ==================== UTILIDADES ====================
+        function limpiarDatos() {
+            if (!confirm('⚠️ ¿Eliminar TODOS los datos?\n\nEsta acción no se puede deshacer y eliminará:\n• Todos los movimientos\n• El saldo acumulado\n• Los filtros aplicados\n\n¿Estás completamente seguro?')) {
+                return;
+            }
+
+            try {
+                movimientos = [];
+                saldoAcumulado = 0;
+                filtroActivo = false;
+                movimientosFiltrados = [];
+                contadorId = 1;
+                
+                guardarDatos();
+                actualizarTabla();
+                actualizarEstadisticas();
+                limpiarTodosFiltros();
+                
+                mostrarToast('✅ Todos los datos eliminados', 'success');
+            } catch (error) {
+                console.error('💥 Error limpiando datos:', error);
+                mostrarToast('Error eliminando datos', 'error');
+            }
+        }
+
+        function limpiarFormulario() {
+            try {
+                const campos = ['tipo', 'emprendimiento', 'concepto', 'destinatario', 'moneda', 'monto'];
+                campos.forEach(campo => {
+                    const elemento = document.getElementById(campo);
+                    if (elemento) elemento.value = '';
+                });
+                
+                const fecha = document.getElementById('fecha');
+                if (fecha) fecha.value = new Date().toISOString().split('T')[0];
+
+                mostrarErroresValidacion([]);
+                
+                const primerCampo = document.getElementById('tipo');
+                if (primerCampo) primerCampo.focus();
+            } catch (error) {
+                console.error('💥 Error limpiando formulario:', error);
+            }
+        }
+
+        // ==================== CONFIGURACIÓN DE EVENTOS ====================
+        function configurarEventos() {
+            try {
+                // Botones principales
+                document.getElementById('btnAgregar').addEventListener('click', agregarMovimiento);
+                document.getElementById('btnExcel').addEventListener('click', descargarExcel);
+                document.getElementById('btnLimpiar').addEventListener('click', limpiarDatos);
+
+                // Botones de filtros
+                document.getElementById('btnAplicarFiltros').addEventListener('click', aplicarFiltrosAvanzados);
+                document.getElementById('btnLimpiarFiltros').addEventListener('click', limpiarTodosFiltros);
+                document.getElementById('btnExportarFiltrados').addEventListener('click', exportarFiltrados);
+
+                // Event delegation para botones de eliminar - Compatible con Brave
+                const tabla = document.querySelector('table');
+                if (tabla) {
+                    tabla.addEventListener('click', function(event) {
+                        // Verificar si el click fue en un botón de eliminar
+                        if (event.target.classList.contains('eliminar-btn')) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                            
+                            const movimientoId = event.target.getAttribute('data-movimiento-id');
+                            console.log('🖱️ Click detectado en botón eliminar. ID del data-attribute:', movimientoId);
+                            
+                            if (movimientoId) {
+                                eliminarMovimiento(parseInt(movimientoId));
+                            } else {
+                                console.error('❌ No se encontró data-movimiento-id en el botón');
+                                mostrarToast('Error: ID de movimiento no encontrado', 'error');
+                            }
+                        }
+                    });
+                    console.log('✅ Event delegation configurado para tabla');
+                }
+
+                // Enter en campos de formulario
+                const camposFormulario = ['fecha', 'tipo', 'emprendimiento', 'concepto', 'destinatario', 'moneda', 'monto'];
+                camposFormulario.forEach(campo => {
+                    const elemento = document.getElementById(campo);
+                    if (elemento) {
+                        elemento.addEventListener('keypress', (e) => {
+                            if (e.key === 'Enter') {
+                                e.preventDefault();
+                                agregarMovimiento();
+                            }
+                        });
+                    }
+                });
+
+                // Búsqueda con debounce
+                const buscarConceptoDebounced = debounce(() => {
+                    if (filtroActivo) aplicarFiltrosAvanzados();
+                }, 500);
+
+                const buscarDestinatarioDebounced = debounce(() => {
+                    if (filtroActivo) aplicarFiltrosAvanzados();
+                }, 500);
+
+                const buscarConcepto = document.getElementById('buscarConcepto');
+                const buscarDestinatario = document.getElementById('buscarDestinatario');
+
+                if (buscarConcepto) buscarConcepto.addEventListener('input', buscarConceptoDebounced);
+                if (buscarDestinatario) buscarDestinatario.addEventListener('input', buscarDestinatarioDebounced);
+
+                console.log('✅ Todos los eventos configurados correctamente');
+            } catch (error) {
+                console.error('💥 Error configurando eventos:', error);
+                mostrarToast('Error configurando interfaz', 'error');
+            }
+        }
+
+        // ==================== INICIALIZACIÓN ====================
+        function inicializar() {
+            console.log('🚀 Iniciando aplicación WOLO...');
+            
+            const hoy = new Date().toISOString().split('T')[0];
+            document.getElementById('fecha').value = hoy;
+            
+            cargarDatos();
+            recalcularSaldos();
+            actualizarTabla();
+            actualizarEstadisticas();
+            
+            // Inicializar PWA
+            detectarPWA();
+            registrarServiceWorker();
+            optimizarParaMovil();
+            
+            // Función de debugging disponible en consola
+            window.verDatos = () => {
+                console.log('📊 Estado actual:');
+                console.log('Movimientos:', movimientos);
+                console.log('Saldo:', saldoAcumulado);
+                console.log('Filtro activo:', filtroActivo);
+                console.log('Contador ID:', contadorId);
+                console.log('PWA instalado:', pwaInstalled);
+            };
+            
+            // Función de prueba para debugging
+            window.probarEliminar = (id) => {
+                console.log('🧪 Probando eliminar ID:', id);
+                eliminarMovimiento(id);
+            };
+            
+            // Función para forzar instalación PWA
+            window.instalarApp = () => {
+                instalarPWA();
+            };
+            
+            console.log('✅ Aplicación iniciada correctamente');
+            console.log('🔧 Debugging functions: verDatos(), probarEliminar(id), instalarApp()');
+            mostrarToast('¡WOLO lista para usar! 📱', 'success');
+        }
+
+        // Inicialización cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 DOM cargado, iniciando aplicación...');
+            
+            try {
+                inicializar();
+                configurarEventos();
+            } catch (error) {
+                console.error('💥 Error crítico en inicialización:', error);
+                mostrarToast('Error crítico al iniciar la aplicación', 'error');
+            }
+        });
+
+        // Manejo de errores globales
+        window.addEventListener('error', function(event) {
+            console.error('💥 Error global:', event.error);
+            mostrarToast('Error inesperado en la aplicación', 'error');
+        });
+    </script>
+</body>
+</html>
